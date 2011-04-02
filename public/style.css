@@ -1,0 +1,22 @@
+body, html {
+    background-color: #fff8f0;
+    color: black;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+label, input, textarea {
+    display: block;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+input[type=text], textarea {
+    width: 30em;
+}
+
+input[type=submit] {
+    float: left;
+    margin-left: 1em;
+    margin-right: 1em;
+}
