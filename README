@@ -1,0 +1,24 @@
+# flutter-decline-demo
+
+A simple CRUD address book demo using flutter, clj-decline and
+compojure.
+
+Mostly written on the train from Hamburg to Utrecht after the
+European Lisp Symposium 2011.
+
+## Usage
+
+lein deps
+lein run
+
+then point your browser at http://localhost:8080/
+
+use
+lein run [port-number]
+to run the demo on another port
+
+## License
+
+Copyright (C) 2010 Joost Diepenmaat, Zeekat Softwareontwikkeling
+
+Distributed under the Eclipse Public License, the same as Clojure.

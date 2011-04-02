@@ -26,7 +26,11 @@
      (swap! server #(stop-demo %)))
   ([server]
      (when @server
-       (.stop server)
+       (.stop @server)
        nil)))
 
-
+(defn -main
+  ([]
+     (run-demo 8080))
+  ([port]
+     (run-demo port)))
