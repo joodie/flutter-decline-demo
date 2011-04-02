@@ -1,12 +1,24 @@
-(ns flutter-decline-demo.db)
+(ns flutter-decline-demo.db
+  (:import java.util.UUID))
 
-(def db (atom {}))
+(defonce db (atom {}))
 
 (defn list-entries
   []
-  (sort-by :name @db))
+  (sort-by :name (vals @db)))
 
 (defn get-entry
-  [name]
-  (or (@db name)
-      {}))
+  [id]
+  (@db id))
+
+(defn add-entry
+  [db obj]
+  (let [id (str (UUID/randomUUID))]
+    (assoc db id (assoc obj :id id))))
+
+(defn update-entry
+  [db obj]
+  (if (seq (:id obj))
+    (assoc db (:id obj) obj)
+    (add-entry db obj)))
+

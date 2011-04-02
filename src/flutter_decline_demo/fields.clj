@@ -24,6 +24,10 @@
   [s]
   (re-matches #"^[\d\s-]*$" s))
 
+(defn valid-id?
+  [s]
+  (re-matches #"^[\da-z-]*$" s))
+
 (def validate-entry
   (validations
    (required :name)

@@ -6,7 +6,6 @@
 (def site-name
   "Flutter-Decline demo")
 
-
 (defn view-wrapper
   "Set up layout for views"
   [title & body]
@@ -23,7 +22,9 @@
   []
   (view-wrapper
    "All entries"
-   [:ul (map #(vector :li (escape-html (:name %))) (list-entries))]
+   [:ul (map #(vector :li
+                      (link-to (str "/edit/" (:id %))
+                               (escape-html (:name %)))) (list-entries))]
    (link-to "/create" "Make a new entry")))
 
 (defn view-form
@@ -32,9 +33,11 @@
    "Create / Edit"
    [:h2 "Please enter the following information"]
    (form-to [:post "/commit"]
+            (field :hidden :id)
             (field :text :name)
             (field :text :email)
             (field :text :phone)
             (field :text-area :address)
             (field :submit nil :action nil :commit)
-            (field :submit nil :action nil :revert))))
+            (field :submit nil :action nil :revert)
+            (field :submit nil :action nil :delete))))
