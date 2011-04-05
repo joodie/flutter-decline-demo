@@ -1,6 +1,6 @@
 (ns flutter-decline-demo.routes
   (:use compojure.core
-        [flutter-decline-demo views fields db]
+        [flutter-decline-demo views fields validations db]
         [compojure.route :only [files]]
         [ring.util.response :only [redirect]]))
 
