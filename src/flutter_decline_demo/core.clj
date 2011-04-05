@@ -25,8 +25,8 @@
   ([]
      (swap! server #(stop-demo %)))
   ([server]
-     (when @server
-       (.stop @server)
+     (when server
+       (.stop server)
        nil)))
 
 (defn -main
