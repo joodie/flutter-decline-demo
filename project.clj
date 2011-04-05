@@ -8,6 +8,6 @@
                  [compojure "0.5.3"]
                  [hiccup "0.3.2"]
                  [ring/ring-jetty-adapter "0.3.1"]
-                 [pretzel "0.2.0"]]
+                 [pretzel "0.2.1"]]
   :dev-dependencies [[ring-mock "0.1.1"]
                      [lein-run "1.0.0"]])
