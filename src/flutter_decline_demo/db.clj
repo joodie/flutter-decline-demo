@@ -9,6 +9,8 @@
 
 (defn get-entry
   [id]
+  (when-not (re-matches #"^[\da-z-]*$" id)
+    (throw (Exception. (str "Invalid id: " id))))
   (@db id))
 
 (defn add-entry
