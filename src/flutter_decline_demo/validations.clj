@@ -1,20 +1,21 @@
 (ns flutter-decline-demo.validations
-  (:use decline.core))
+  (:use decline.core)
+  (:require [pretzel.strings :as str]))
 
 (defn required
   [param]
   (validate-val param seq {param ["this is a required field"]}))
 
-(defn valid-phone?
-  [s]
-  (re-matches #"^[\d\s-]*$" s))
-
 (def validate-entry
   (validations
    (required :name)
-   (required :email)
-   (required :phone)
-   (validate-val :phone valid-phone?
-                 {:phone ["may only contain numbers, spaces and dashes"]})
+   (validate-some
+    (required :email)
+    (validate-val :email str/looks-like-email?
+                  {:email ["must contain an @ sign, and a dot in the domain name"]}))
+   (validate-some
+    (required :phone)
+    (validate-val :phone str/looks-like-phone?
+                  {:phone ["this doesn't look like a phone number."]}))
    (required :address)))
 
