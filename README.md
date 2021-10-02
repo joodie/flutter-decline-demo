@@ -1,6 +1,6 @@
 # flutter-decline-demo
 
-A simple CRUD address book demo using [flutter][flutter],
+A simple CRUD(Create, Read, Update and Delete) address book demo using [flutter][flutter],
 [clj-decline][decline], [pretzel][pretzel] and [compojure][compojure].
 
 Mostly written on the train from Hamburg to Utrecht after the
